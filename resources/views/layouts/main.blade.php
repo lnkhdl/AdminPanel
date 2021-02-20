@@ -25,7 +25,6 @@
                     <span>2020 © LNKHDL</span>
                 </footer>
             </div>
-            
 
             <div class="flex-grow bg-main-100">
                 <div>
@@ -39,8 +38,5 @@
                 </div>                
             </div>
         </div>
-
-        
-
     </body>
 </html>
