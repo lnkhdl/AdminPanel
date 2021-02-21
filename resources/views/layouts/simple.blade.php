@@ -7,9 +7,9 @@
 
         <title>Admin Panel</title>
     </head>
-    <body class="bg-gray-200 antialiase">
-        <div class="flex h-screen">
-            <main class="m-auto">
+    <body class="bg-main-100 antialiase">
+        <div class="grid min-h-screen place-items-center">
+            <main class="w-1/4 bg-white border border-gray-200 rounded shadow-lg">
                 @yield('content')
             </main>
         </div>

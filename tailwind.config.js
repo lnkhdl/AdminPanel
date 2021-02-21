@@ -13,8 +13,8 @@ module.exports = {
           '200': '#d5f5f6',
           '300': '#7edce2',
           '400': '#0',
-          '500': '#0',
-          '600': '#0',
+          '500': '#05a8bd',
+          '600': '#0492a4',
           '700': '#036672',
           '800': '#05505c',
           '900': '#0'
@@ -25,5 +25,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

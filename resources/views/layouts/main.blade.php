@@ -9,7 +9,7 @@
     </head>
     <body class="bg-gray-200 antialiase">
         <div class="flex h-screen">
-            <div class="relative flex-grow-0 w-56 bg-main-700 text-gray-50">
+            <div class="relative flex-grow-0 w-56 shadow-2xl bg-main-700 text-gray-50">
                 <nav class="">
                     <div class="px-4 py-3 text-2xl text-center border-b-2 shadow-lg">Admin Panel</div>
                     <ul class="p-4">
@@ -32,7 +32,7 @@
                         <a href="#" class="mx-3 hover:text-main-800">My Profile</a>
                         <a href="#" class="mx-3 hover:text-main-800">Logout</a>
                     </div>
-                    <main class="px-8 py-4">
+                    <main class="px-8 py-4 bg-main-100">
                         @yield('content')
                     </main>
                 </div>                
