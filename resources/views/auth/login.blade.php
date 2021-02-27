@@ -9,25 +9,27 @@
         </div>
     @endif
 
+    @if ($errors->any())
+        <div class="mx-6 mt-4">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="text-red-500">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form method="POST" action="{{ route('login') }}" class="px-6 py-4">
         @csrf
 
-        <div class="my-4">
+        <div>
             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-            <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="email" autofocus class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border @error('email') border-red-500 @enderror rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
-        
-            @error('email')
-                <p class="text-xs text-red-500">{{ $message }}</p>
-            @enderror
+            <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="email" autofocus class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
         </div>
 
         <div class="my-4">
             <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-            <input id="password" name="password" type="password" required class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border @error('password') border-red-500 @enderror rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
-        
-            @error('password')
-                <p class="text-xs text-red-500">{{ $message }}</p>
-            @enderror
+            <input id="password" name="password" type="password" required class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
         </div>
 
         <div class="mt-5 mb-4">

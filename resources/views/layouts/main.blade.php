@@ -30,7 +30,11 @@
                 <div>
                     <div class="flex justify-end px-8 py-4 bg-white border-b-2">
                         <a href="#" class="mx-3 hover:text-main-800">My Profile</a>
-                        <a href="#" class="mx-3 hover:text-main-800">Logout</a>
+
+                        <a href="{{ route('logout') }}" class="mx-3 hover:text-main-800" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}" class="hidden">
+                            @csrf
+                        </form>
                     </div>
                     <main class="px-8 py-4 bg-main-100">
                         @yield('content')
