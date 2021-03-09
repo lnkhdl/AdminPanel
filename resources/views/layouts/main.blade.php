@@ -8,13 +8,13 @@
         <title>Admin Panel</title>
     </head>
     <body class="bg-gray-200 antialiase">
-        <div class="flex h-screen">
+        <div class="flex min-h-screen">
             <div class="relative flex-grow-0 w-56 shadow-2xl bg-main-700 text-gray-50">
                 <nav class="">
                     <div class="px-4 py-3 text-2xl text-center border-b-2 shadow-lg">Admin Panel</div>
                     <ul class="p-4">
                         <li class="p-2 rounded-lg bg-main-800">
-                            <a href="#">Menu #1</a>
+                            <a href="/users">Users</a>
                         </li>
                         <li class="p-2">
                             <a href="#">Menu #2</a>
