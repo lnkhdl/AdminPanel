@@ -44,6 +44,7 @@ class User extends Authenticatable
 
     /**
      * The roles that belong to the user.
+     * Although many-to-many relation was used, currently it is expected that a user can have only one role.
      */
     public function roles()
     {

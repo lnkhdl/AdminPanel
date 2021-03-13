@@ -9,20 +9,23 @@
     </head>
     <body class="bg-gray-200 antialiase">
         <div class="flex min-h-screen">
-            <div class="relative flex-grow-0 w-56 shadow-2xl bg-main-700 text-gray-50">
+            <div class="relative flex-grow-0 w-56 bg-gray-700 shadow-2xl text-gray-50">
                 <nav class="">
-                    <div class="px-4 py-3 text-2xl text-center border-b-2 shadow-lg">Admin Panel</div>
-                    <ul class="p-4">
-                        <li class="p-2 rounded-lg bg-main-800">
-                            <a href="/users">Users</a>
+                    <div class="px-4 py-3 mb-4 text-2xl text-center shadow-lg">Admin Panel</div>
+                    <ul>
+                        <li class="block bg-gray-800">
+                            <a class="block px-4 py-3" href="{{ route('users.index') }}">Users</a>
                         </li>
-                        <li class="p-2">
-                            <a href="#">Menu #2</a>
+                        <li class="block">
+                            <a class="block px-4 py-3" href="#">Menu #2</a>
+                        </li>
+                        <li class="block">
+                            <a class="block px-4 py-3" href="#">Menu #3</a>
                         </li>
                     </ul>
                 </nav>
                 <footer class="absolute bottom-0 py-4 text-xs left-16">
-                    <span>2020 © LNKHDL</span>
+                    <span>2021 © LNKHDL</span>
                 </footer>
             </div>
 
