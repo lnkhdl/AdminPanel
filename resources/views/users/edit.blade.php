@@ -3,6 +3,10 @@
 @section('content')
     <h3 class="text-2xl font-medium text-gray-700">Edit user</h3>
 
+    <div class="my-6">
+        <a href="{{ route('users.index') }}" class="px-4 py-2 text-white rounded bg-main-600 hover:bg-main-500">Back to Users</a>
+    </div>
+
     <div class="mt-4">
         <form action="{{ route('users.update', $user) }}" method="POST">
             @csrf
@@ -28,7 +32,7 @@
     
             <div class="my-4">
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" autocomplete="email" class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border @error('email') border-red-500 @enderror rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
+                <input id="email" name="email" type="text" value="{{ old('email', $user->email) }}" autocomplete="email" class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border @error('email') border-red-500 @enderror rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
             
                 @error('email')
                     <p class="text-xs text-red-500">{{ $message }}</p>
@@ -37,10 +41,10 @@
 
             <div class="my-4">
                 <label for="role_id" class="block text-sm font-medium text-gray-700">Role</label>
-                <select name="role_id" id="role_id" class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border @error('email') border-red-500 @enderror rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
+                <select name="role_id" id="role_id" class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border @error('role_id') border-red-500 @enderror rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
                     <option selected="selected" disabled="disabled">Select a role</option>
                     @foreach ($roles as $key => $value)
-                        <option value="{{ $key }}" {{ old('role', $user->roles[0]->id) == $key ? "selected" : "" }}>{{ $value }}</option>
+                        <option value="{{ $key }}" {{ old('role_id', $user->roles[0]->id) == $key ? "selected" : "" }}>{{ $value }}</option>
                     @endforeach
                 </select>
 

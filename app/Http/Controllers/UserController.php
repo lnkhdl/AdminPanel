@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
@@ -36,23 +36,17 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $validated = $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'role_id' => 'required|exists:App\Models\Role,id',
-        ]);
+        $data = $request->validated();
+        $data['password'] = Hash::make(Str::random(8));
+        $user = User::create($data);
 
-        $validated['password'] = Hash::make(Str::random(8));
-
-        $user = User::create($validated);
-
-        $user->roles()->sync($request['role_id']);
+        // Currently, a user can have only one role
+        $user->roles()->sync($data['role_id']);
 
         return redirect()->route('users.index')->with('message', 'User with ' . $user->email . ' email address has been created!');
     }
@@ -84,24 +78,14 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUserRequest  $request
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(StoreUserRequest $request, User $user)
     {
-        $validated = $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'role_id' => 'required|exists:App\Models\Role,id',
-        ]);
-
-        $user->update([
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            'email' => $request['email'],
-        ]);
+        $data = $request->validated();
+        $user->update($data);
 
         // Currently, a user can have only one role
         $user->roles()->sync($request['role_id']);

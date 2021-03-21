@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="my-6">
-        <a href="{{ route('users.index') }}" class="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-500">Back to Users</a>
+        <a href="{{ route('users.index') }}" class="px-4 py-2 text-white rounded bg-main-600 hover:bg-main-500">Back to Users</a>
     </div>
     
     <div class="mt-6">
