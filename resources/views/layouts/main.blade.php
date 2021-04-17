@@ -13,14 +13,16 @@
                 <nav class="">
                     <div class="px-4 py-3 mb-4 text-2xl text-center shadow-lg">Admin Panel</div>
                     <ul>
-                        <li class="block bg-gray-800">
-                            <a class="block px-4 py-3" href="{{ route('users.index') }}">Users</a>
+                        <li class="block">
+                            <a class="block px-4 py-3" href="{{ route('dashboard') }}">Dashboard</a>
                         </li>
+                        @can('view', App\Models\User::class)
+                            <li class="block bg-gray-800">
+                                <a class="block px-4 py-3" href="{{ route('users.index') }}">Users</a>
+                            </li>
+                        @endcan
                         <li class="block">
                             <a class="block px-4 py-3" href="#">Menu #2</a>
-                        </li>
-                        <li class="block">
-                            <a class="block px-4 py-3" href="#">Menu #3</a>
                         </li>
                     </ul>
                 </nav>

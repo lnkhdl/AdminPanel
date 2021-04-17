@@ -14,9 +14,10 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        Permission::create(['name' => 'user_create', 'description' => 'Permission to create a user.']);
-        Permission::create(['name' => 'user_read', 'description' => 'Permission to read a user.']);
-        Permission::create(['name' => 'user_update', 'description' => 'Permission to update a user.']);
-        Permission::create(['name' => 'user_delete', 'description' => 'Permission to delete a user.']);
+        Permission::create(['name' => 'user.viewAny', 'description' => 'Permission to view a list of users.']);
+        Permission::create(['name' => 'user.view', 'description' => 'Permission to view details about a user.']);
+        Permission::create(['name' => 'user.create', 'description' => 'Permission to create a user.']);
+        Permission::create(['name' => 'user.update', 'description' => 'Permission to update a user.']);
+        Permission::create(['name' => 'user.delete', 'description' => 'Permission to delete a user.']);
     }
 }
