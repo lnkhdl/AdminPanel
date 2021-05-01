@@ -2,10 +2,12 @@
 
 @section('content')
     <h3 class="text-2xl font-medium text-gray-700">Users</h3>
-    <div class="my-6">
-        <a href="{{ route('users.create') }}" class="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-500">New User</a>
-    </div>
-    
+    @can('create', Auth::user())
+        <div class="my-6">
+            <a href="{{ route('users.create') }}" class="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-500">New User</a>
+        </div>    
+    @endcan
+        
 
     @if (session('message'))
         <div class="p-3 my-4 font-semibold text-green-700 bg-green-200 border border-green-300 rounded-md">

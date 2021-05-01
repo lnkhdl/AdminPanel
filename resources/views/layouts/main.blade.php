@@ -16,7 +16,7 @@
                         <li class="block">
                             <a class="block px-4 py-3" href="{{ route('dashboard') }}">Dashboard</a>
                         </li>
-                        @can('view', App\Models\User::class)
+                        @can('view', Auth::user())
                             <li class="block bg-gray-800">
                                 <a class="block px-4 py-3" href="{{ route('users.index') }}">Users</a>
                             </li>
