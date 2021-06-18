@@ -22,7 +22,7 @@
                             </li>
                         @endcan
                         <li class="block">
-                            <a class="block px-4 py-3" href="#">Menu #2</a>
+                            <a class="block px-4 py-3" href="{{ route('permissions.index') }}">Permissions</a>
                         </li>
                     </ul>
                 </nav>

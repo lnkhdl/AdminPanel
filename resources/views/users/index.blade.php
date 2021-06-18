@@ -55,7 +55,7 @@
                     </tr>
                 @empty
                     <tr class="bg-white border-t-2 border-gray-200">
-                        <td class="px-8 py-2" colspan="5">No users found.</td>
+                        <td class="px-6 py-2" colspan="5">No users found.</td>
                     </tr>
                 @endforelse
             </tbody>

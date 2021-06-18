@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,6 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-
-//Route::get('/user', [UserController::class, 'index']);
 Route::resource('users', UserController::class);
+
+Route::get('/permissions', [PermissionController::class, 'index'])->middleware(['auth'])->name('permissions.index');
