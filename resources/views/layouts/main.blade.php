@@ -21,9 +21,11 @@
                                 <a class="block px-4 py-3" href="{{ route('users.index') }}">Users</a>
                             </li>
                         @endcan
-                        <li class="block">
-                            <a class="block px-4 py-3" href="{{ route('permissions.index') }}">Permissions</a>
-                        </li>
+                        @if (auth()->user()->isAdmin())
+                            <li class="block">
+                                <a class="block px-4 py-3" href="{{ route('permissions.index') }}">Permissions</a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
                 <footer class="absolute bottom-0 py-4 text-xs left-16">

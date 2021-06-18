@@ -15,10 +15,13 @@ use App\Http\Controllers\PermissionController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => ['auth']], function () {
+  
+    Route::view('/', 'dashboard')->name('dashboard');
 
-Route::resource('users', UserController::class);
+    Route::resource('users', UserController::class);
 
-Route::get('/permissions', [PermissionController::class, 'index'])->middleware(['auth'])->name('permissions.index');
+    Route::group(['middleware' => 'admin'], function () {
+        Route::get('/permissions', [PermissionController::class, 'index'])->name('permissions.index');
+    });
+});

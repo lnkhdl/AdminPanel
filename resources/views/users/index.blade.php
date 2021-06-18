@@ -34,23 +34,25 @@
                         <td class="px-6 py-4 text-sm font-medium leading-5 text-gray-900 whitespace-no-wrap border-t border-gray-200">{{ $user->email }}</td>
                         <td class="px-6 py-4 text-sm font-medium leading-5 text-gray-900 whitespace-no-wrap border-t border-gray-200">{{ $user->roles[0]->name }}</td>
 
-                        <td class="flex justify-center px-6 py-4 text-sm whitespace-no-wrap border-t border-gray-200">
-                            @can('view', $user)
-                                <a href="{{ route('users.show', $user) }}" class="px-4 py-1 mx-4 text-green-900 border border-green-900 rounded bg-green-50 hover:bg-green-700 hover:text-white">View</a>
-                            @endcan
-                            
-                            @can('update', $user)
-                                <a href="{{ route('users.edit', $user) }}" class="px-4 py-1 mx-4 text-blue-900 border border-blue-900 rounded bg-blue-50 hover:bg-blue-700 hover:text-white">Edit</a>
-                            @endcan
+                        <td class="px-6 py-4 text-sm whitespace-no-wrap border-t border-gray-200">
+                            <div class="flex justify-center">
+                                @can('view', $user)
+                                    <a href="{{ route('users.show', $user) }}" class="px-4 py-1 mx-4 text-green-900 border border-green-900 rounded bg-green-50 hover:bg-green-700 hover:text-white">View</a>
+                                @endcan
+                                
+                                @can('update', $user)
+                                    <a href="{{ route('users.edit', $user) }}" class="px-4 py-1 mx-4 text-blue-900 border border-blue-900 rounded bg-blue-50 hover:bg-blue-700 hover:text-white">Edit</a>
+                                @endcan
 
-                            @can('delete', $user)
-                                <form class="inline-block" action="{{ route('users.destroy', $user) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Are you sure?')"
-                                        class="px-4 py-1 mx-4 text-red-900 border border-red-900 rounded bg-red-50 hover:bg-red-700 hover:text-white">Delete</button>
-                                </form>
-                            @endcan
+                                @can('delete', $user)
+                                    <form class="inline-block" action="{{ route('users.destroy', $user) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Are you sure?')"
+                                            class="px-4 py-1 mx-4 text-red-900 border border-red-900 rounded bg-red-50 hover:bg-red-700 hover:text-white">Delete</button>
+                                    </form>
+                                @endcan
+                            </div>
                         </td>
                     </tr>
                 @empty
