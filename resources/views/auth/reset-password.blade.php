@@ -16,7 +16,7 @@
 
         <div class="my-4">
             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-            <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="email" autofocus class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border @error('email') border-red-500 @enderror rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
+            <input id="email" name="email" type="email" value="{{ old('email') ?? $request->email }}" required autocomplete="email" autofocus class="block w-full px-3 py-2 mt-1 leading-tight text-gray-700 border @error('email') border-red-500 @enderror rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
         
             @error('email')
                 <p class="text-xs text-red-500">{{ $message }}</p>

@@ -10,8 +10,15 @@
         
 
     @if (session('message'))
-        <div class="p-3 my-4 font-semibold text-green-700 bg-green-200 border border-green-300 rounded-md">
-            {{ session('message') }}
+        <div class="p-3 my-4 text-green-900 bg-green-50 border border-green-900 rounded-md">
+            <div>{{ session('message') }}</div>
+            @if (session('emailResult'))
+                @if (session('emailResult') == 'success')
+                    <div>Welcome email has been sent to the user.</div>
+                @else
+                    <div class='text-red-800'>An error occurred while sending Welcome email to the user.</div>
+                @endif
+            @endif
         </div>
     @endif
 

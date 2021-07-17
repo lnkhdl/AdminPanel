@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        <title>Admin Panel</title>
+        <title>{{ config('app.name') }}</title>
     </head>
     <body class="bg-gray-200 antialiase">
         <div class="flex min-h-screen">
             <div class="relative flex-grow-0 w-56 bg-gray-700 shadow-2xl text-gray-50">
                 <nav class="">
-                    <div class="px-4 py-3 mb-4 text-2xl text-center shadow-lg">Admin Panel</div>
+                    <div class="px-4 py-3 mb-4 text-2xl text-center shadow-lg">{{ config('app.name') }}</div>
                     <ul>
                         <li class="block">
                             <a class="block px-4 py-3" href="{{ route('dashboard') }}">Dashboard</a>

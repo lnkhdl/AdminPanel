@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        <title>Admin Panel</title>
+        <title>{{ config('app.name') }}</title>
     </head>
     <body class="bg-main-100 antialiase">
         <div class="grid min-h-screen place-items-center">

@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Mail\WelcomeMail;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\StoreUserRequest;
+use Illuminate\Auth\Passwords\PasswordBroker;
 
 class UserController extends Controller
 {
@@ -38,8 +41,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name', 'id');
-
+        $roles = Role::where('name', '!=', 'Administrator')->pluck('name', 'id');
         return view('users.create', compact('roles'));
     }
 
@@ -57,8 +59,19 @@ class UserController extends Controller
 
         // Currently, a user can have only one role
         $user->roles()->sync($data['role_id']);
+        
+        $emailResult = '';
+        try {
+            Mail::send(new WelcomeMail($user, app(PasswordBroker::class)->createToken($user)));
+            $emailResult = 'success';
+        }
+        catch(\Exception $e) {
+            $emailResult = 'fail';
+        }
 
-        return redirect()->route('users.index')->with('message', 'User with ' . $user->email . ' email address has been created!');
+        return redirect()->route('users.index')
+                         ->with('message', 'User with ' . $user->email . ' email address has been created!')
+                         ->with('emailResult', $emailResult);
     }
 
     /**
@@ -80,8 +93,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Role::pluck('name', 'id');
-
+        $roles = Role::where('name', '!=', 'Administrator')->pluck('name', 'id');
         return view('users.edit', compact('user', 'roles'));
     }
 

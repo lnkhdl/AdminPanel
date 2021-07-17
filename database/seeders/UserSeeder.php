@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        foreach(range(1, 50) as $index)
+        foreach(range(1, 10) as $index)
         {
             $user = User::factory()->create();
             $user->roles()->sync([random_int(2, 4)]);
