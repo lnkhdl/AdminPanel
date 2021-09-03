@@ -6,6 +6,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <title>{{ config('app.name') }}</title>
+        @livewireStyles
     </head>
     <body class="bg-gray-200 antialiase">
         <div class="flex min-h-screen">
@@ -49,5 +50,9 @@
                 </div>                
             </div>
         </div>
+
+        @livewireScripts
+        <script src="{{ asset(mix('js/app.js')) }}"></script>
+        
     </body>
 </html>

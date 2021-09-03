@@ -31,7 +31,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with('roles')->simplePaginate(10);
-        return view('users.index', compact('users'));
+        $roles = Role::pluck('name', 'id');
+        return view('users.index', compact('users', 'roles'));
     }
 
     /**
@@ -57,7 +58,7 @@ class UserController extends Controller
         $data['password'] = Hash::make(Str::random(8));
         $user = User::create($data);
 
-        // Currently, a user can have only one role
+        // Currently, UI allows to select only one role when creating a user
         $user->roles()->sync($data['role_id']);
         
         $emailResult = '';

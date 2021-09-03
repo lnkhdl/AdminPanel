@@ -56,4 +56,29 @@ class User extends Authenticatable
     {
         return $this->roles[0]->name == 'Administrator';
     }
+
+    /**
+     * Scope a query to only include users of a given role.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  mixed  $roleName
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfRole($query, $roleName)
+    {
+        return $query->whereHas('roles', function($q) use ($roleName) {
+            $q->whereIn('name', [$roleName]);
+        });
+    }
+
+    public function scopeSearch($query, $term)
+    {
+        $term = '%' . trim($term) . '%';
+
+        return $query->where(function ($q) use ($term) {
+            $q->where('first_name', 'like', $term)
+              ->orWhere('last_name', 'like', $term)
+              ->orWhere('email', 'like', $term);
+        });
+    }
 }
