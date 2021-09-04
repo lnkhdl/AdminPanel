@@ -42,10 +42,10 @@
                             wire:click.prevent="setSortBy('first_name')" href="#">
                             <div class="flex flex-row">
                                 <span>First name</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 min-w-4 ml-1 text-white {{ $sortByColumn ===  'first_name' && $sortOrder === 'asc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 text-white {{ $sortByColumn ===  'first_name' && $sortOrder === 'asc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 min-w-4 ml-1 text-white {{ $sortByColumn ===  'first_name' && $sortOrder === 'desc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 text-white {{ $sortByColumn ===  'first_name' && $sortOrder === 'desc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>                          
                             </div> 
@@ -56,10 +56,10 @@
                             wire:click.prevent="setSortBy('last_name')" href="#">
                             <div class="flex flex-row">
                                 <span>Last name</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 min-w-4 ml-1 text-white {{ $sortByColumn ===  'last_name' && $sortOrder === 'asc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 text-white {{ $sortByColumn ===  'last_name' && $sortOrder === 'asc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 min-w-4 ml-1 text-white {{ $sortByColumn ===  'last_name' && $sortOrder === 'desc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 text-white {{ $sortByColumn ===  'last_name' && $sortOrder === 'desc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>                          
                             </div> 
@@ -70,10 +70,10 @@
                             wire:click.prevent="setSortBy('email')" href="#">
                             <div class="flex flex-row">
                                 <span>Email</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 min-w-4 ml-1 text-white {{ $sortByColumn ===  'email' && $sortOrder === 'asc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 text-white {{ $sortByColumn ===  'email' && $sortOrder === 'asc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 min-w-4 ml-1 text-white {{ $sortByColumn ===  'email' && $sortOrder === 'desc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 text-white {{ $sortByColumn ===  'email' && $sortOrder === 'desc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>                          
                             </div> 
@@ -84,10 +84,10 @@
                             wire:click.prevent="setSortBy('role_name')" href="#">
                             <div class="flex flex-row">
                                 <span>Role</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 min-w-4 ml-1 text-white {{ $sortByColumn ===  'role_name' && $sortOrder === 'asc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 text-white {{ $sortByColumn ===  'role_name' && $sortOrder === 'asc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 min-w-4 ml-1 text-white {{ $sortByColumn ===  'role_name' && $sortOrder === 'desc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 text-white {{ $sortByColumn ===  'role_name' && $sortOrder === 'desc' ? 'block' : 'hidden' }}" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>                          
                             </div> 
