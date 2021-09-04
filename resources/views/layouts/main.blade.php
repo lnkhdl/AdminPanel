@@ -14,16 +14,16 @@
                 <nav class="">
                     <div class="px-4 py-3 mb-4 text-2xl text-center shadow-lg">{{ config('app.name') }}</div>
                     <ul>
-                        <li class="block">
+                        <li class="block {{ Request::routeIs('dashboard') ? 'bg-gray-800' : '' }}">
                             <a class="block px-4 py-3" href="{{ route('dashboard') }}">Dashboard</a>
                         </li>
                         @can('view', Auth::user())
-                            <li class="block bg-gray-800">
+                            <li class="block {{ Request::routeIs('users.index') ? 'bg-gray-800' : '' }}">
                                 <a class="block px-4 py-3" href="{{ route('users.index') }}">Users</a>
                             </li>
                         @endcan
                         @if (auth()->user()->isAdmin())
-                            <li class="block">
+                            <li class="block {{ Request::routeIs('permissions.index') ? 'bg-gray-800' : '' }}">
                                 <a class="block px-4 py-3" href="{{ route('permissions.index') }}">Permissions</a>
                             </li>
                         @endif
@@ -37,8 +37,6 @@
             <div class="flex-grow bg-main-100">
                 <div>
                     <div class="flex justify-end px-8 py-4 bg-white border-b-2">
-                        <a href="#" class="mx-3 hover:text-main-800">My Profile</a>
-
                         <a href="{{ route('logout') }}" class="mx-3 hover:text-main-800" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                         <form id="logout-form" method="POST" action="{{ route('logout') }}" class="hidden">
                             @csrf

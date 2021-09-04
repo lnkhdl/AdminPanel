@@ -5,13 +5,28 @@ namespace App\Http\Livewire;
 use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ShowUsers extends Component
 {
+    use WithPagination;
+
     public $byRole = "";
     public $search = "";
     public $sortByColumn = "id";
     public $sortOrder = "asc";
+
+    // Reset the current page to 1 when filtering by role is applied
+    public function updatingByRole()
+    {
+        $this->resetPage();
+    }
+
+    // Reset the current page to 1 when searching is applied
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function setSortBy($column)
     {
@@ -32,7 +47,7 @@ class ShowUsers extends Component
                                     ->join('roles', 'role_user.role_id', 'roles.id')
                                     ->select('users.*', 'roles.name AS role_name')
                                     ->orderBy($this->sortByColumn, $this->sortOrder)
-                                    ->get(),
+                                    ->paginate(10),
             'roles' => Role::pluck('name', 'id')
         ]);
     }

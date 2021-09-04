@@ -30,9 +30,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('roles')->simplePaginate(10);
-        $roles = Role::pluck('name', 'id');
-        return view('users.index', compact('users', 'roles'));
+        // Data is provided via Livewire component
+        return view('users.index');
     }
 
     /**
