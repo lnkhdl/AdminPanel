@@ -14,6 +14,7 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        Type::create(['name' => 'task']);
+        Type::create(['id' => 1, 'name' => 'Task']);
+        Type::create(['id' => 2, 'name' => 'Request']);
     }
 }

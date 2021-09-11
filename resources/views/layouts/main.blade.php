@@ -10,7 +10,7 @@
     </head>
     <body class="bg-gray-200 antialiase">
         <div class="flex min-h-screen">
-            <div class="relative flex-grow-0 w-56 bg-gray-700 shadow-2xl text-gray-50">
+            <div class="relative w-56 min-w-56 flex-none bg-gray-700 shadow-2xl text-gray-50">
                 <nav class="">
                     <div class="px-4 py-3 mb-4 text-2xl text-center shadow-lg">{{ config('app.name') }}</div>
                     <ul>
@@ -25,6 +25,11 @@
                         @if (auth()->user()->isAdmin())
                             <li class="block {{ Request::routeIs('permissions.index') ? 'bg-gray-800' : '' }}">
                                 <a class="block px-4 py-3" href="{{ route('permissions.index') }}">Permissions</a>
+                            </li>
+                        @endif
+                        @if (auth()->user()->isAdmin())
+                            <li class="block {{ Request::routeIs('issues.workflow') ? 'bg-gray-800' : '' }}">
+                                <a class="block px-4 py-3" href="{{ route('issues.workflow') }}">Issues Workflow</a>
                             </li>
                         @endif
                     </ul>
