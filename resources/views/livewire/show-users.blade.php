@@ -5,9 +5,9 @@
                 <a href="{{ route('users.create') }}" class="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-500">New User</a>
             @endcan
         </div>
-        <div class="">
+        <div>
             <label for="role_id" class="block font-medium text-gray-700">Filter by Role</label>
-            <select wire:model="byRole" name="role_id" id="role_id" class="block min-w-full px-3 py-2 mt-1 leading-tight text-gray-700 border rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
+            <select wire:model="byRole" name="role_name" id="role_name" class="block min-w-full px-3 py-2 mt-1 leading-tight text-gray-700 border rounded appearance-none focus:border-main-600 focus:ring focus:ring-main-600 focus:ring-opacity-10">
                 <option selected="selected" value="">All Roles</option>
                 @foreach ($roles as $role)
                     <option value="{{ $role }}">{{ $role }}</option>

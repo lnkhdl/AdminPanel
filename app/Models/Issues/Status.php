@@ -31,7 +31,7 @@ class Status extends Model
     /**
      * Get a collection of next possible statuses for the status
      */
-    public function getNextPossibleStatuses()
+    public function getNextPossibleStatusesAttribute()
     {
         $nextPossibleStatuses = collect();
         $workflows = $this->hasMany(Workflow::class, 'issue_status_id')->get();
