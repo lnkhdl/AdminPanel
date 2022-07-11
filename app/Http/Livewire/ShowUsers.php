@@ -38,10 +38,10 @@ class ShowUsers extends Component
     {
         return view('livewire.show-users',[
             'users' => User::query()->when($this->byRole, function($q) {
-                                           $q->ofRole($this->byRole);
+                                           return $q->ofRole($this->byRole);
                                       })
                                     ->when($this->search, function($q) {
-                                           $q->search($this->search);
+                                           return $q->search($this->search);
                                       })
                                     ->join('role_user', 'users.id', '=', 'role_user.user_id')
                                     ->join('roles', 'role_user.role_id', 'roles.id')

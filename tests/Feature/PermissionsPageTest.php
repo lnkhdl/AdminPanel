@@ -3,13 +3,19 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\Role;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class PermissionsPageTest extends TestCase
 {
     use RefreshDatabase;
+    use DatabaseMigrations;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->seed();
+    }
 
     /** @test */
     public function not_authenticated_user_is_redirected_from_permissions_page_to_login_page()
@@ -31,15 +37,5 @@ class PermissionsPageTest extends TestCase
         $user = $this->createUserWithSpecificRole('Administrator');
 
         $this->actingAs($user)->get('/permissions')->assertSuccessful();
-    }
-
-    private function createUserWithSpecificRole(string $roleName)
-    {
-        Role::create(['name' => $roleName]);
-
-        $user = User::factory()->create();
-        $user->roles()->sync([Role::where('name', $roleName)->first()->id]);
-
-        return $user;
-    }
+    }  
 }

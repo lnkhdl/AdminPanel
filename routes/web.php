@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Issues\IssueController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\Issues\WorkflowController;
 
@@ -21,6 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::view('/', 'dashboard')->name('dashboard');
 
     Route::resource('users', UserController::class);
+    Route::resource('issues', IssueController::class);
 
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/permissions', [PermissionController::class, 'index'])->name('permissions.index');

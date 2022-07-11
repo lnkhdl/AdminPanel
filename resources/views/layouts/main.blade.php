@@ -32,10 +32,23 @@
                                 <a class="block px-4 py-3" href="{{ route('issues.workflow') }}">Issues Workflow</a>
                             </li>
                         @endif
+                        @can('viewAny', App\Models\Issue\Issue::class)
+                            <li class="block {{ Request::routeIs('issues.index') && Request()->range == 'all' ? 'bg-gray-800' : '' }}">
+                                <a class="block px-4 py-3" href="{{ route('issues.index', ['range' => 'all']) }}">All Issues</a>
+                            </li>
+                        @endcan
+                        @can('viewMy', App\Models\Issues\Issue::class)
+                            <li class="block {{ Request::routeIs('issues.index') && Request()->range == 'my_reported' ? 'bg-gray-800' : '' }}">
+                                <a class="block px-4 py-3" href="{{ route('issues.index', ['range' => 'my_reported']) }}">My Reported Issues</a>
+                            </li>
+                            <li class="block {{ Request::routeIs('issues.index') && Request()->range == 'my_assigned' ? 'bg-gray-800' : '' }}">
+                                <a class="block px-4 py-3" href="{{ route('issues.index', ['range' => 'my_assigned']) }}">My Assigned Issues</a>
+                            </li>
+                        @endcan
                     </ul>
                 </nav>
                 <footer class="absolute bottom-0 py-4 text-xs left-16">
-                    <span>2021 © LNKHDL</span>
+                    <span>2022 © LNKHDL</span>
                 </footer>
             </div>
 

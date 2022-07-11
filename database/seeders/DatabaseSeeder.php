@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Issues\TypeSeeder::class);
         $this->call(Issues\StatusSeeder::class);
         $this->call(Issues\WorkflowSeeder::class);
+        $this->call(Issues\IssueSeeder::class);
     }
 }

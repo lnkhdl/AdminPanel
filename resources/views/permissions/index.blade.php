@@ -8,7 +8,7 @@
             <thead>
                 <tr>
                     <td rowspan="2" class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-white uppercase bg-gray-700">Permissions</td>
-                    <td colspan="4" class="border-b border-l border-gray-100 px-6 py-3 text-center text-xs font-medium leading-4 tracking-wider text-left text-white uppercase bg-gray-700">Roles</td>
+                    <td colspan="{{ count($permissions) }}" class="border-b border-l border-gray-100 px-6 py-3 text-center text-xs font-medium leading-4 tracking-wider text-left text-white uppercase bg-gray-700">Roles</td>
                 </tr>
                 <tr>
                     @foreach ($roles as $role)

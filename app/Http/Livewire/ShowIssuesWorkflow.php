@@ -11,14 +11,14 @@ class ShowIssuesWorkflow extends Component
 
     public function mount()
     {
-        $this->byType = $this->byType ?? Type::first()->name;
+        $this->byType = $this->byType ?? Type::firstOrFail()->name;
     }
 
     public function render()
     {
         return view('livewire.show-issues-workflow', [
-            'allTypes' => Type::all()->pluck('name'),
-            'selectedType'=> Type::with('statuses')->where('name', $this->byType)->first()
+            'allTypes' => Type::pluck('name'),
+            'selectedType'=> Type::with('statuses')->where('name', $this->byType)->firstOrFail()
         ]);
     }
 }

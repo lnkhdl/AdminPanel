@@ -42,7 +42,6 @@ class UserPolicy
     public function view()
     {
         $userPermissions = auth()->user()->roles[0]->permissions->map->only(['name'])->pluck('name');
-
         return in_array('user.view', $userPermissions->toArray());
     }
 
@@ -54,7 +53,6 @@ class UserPolicy
     public function create()
     {
         $userPermissions = auth()->user()->roles[0]->permissions->map->only(['name'])->pluck('name');
-
         return in_array('user.create', $userPermissions->toArray());
     }
 
@@ -66,7 +64,6 @@ class UserPolicy
     public function update()
     {
         $userPermissions = auth()->user()->roles[0]->permissions->map->only(['name'])->pluck('name');
-
         return in_array('user.update', $userPermissions->toArray());
     }
 
@@ -78,7 +75,6 @@ class UserPolicy
     public function delete()
     {
         $userPermissions = auth()->user()->roles[0]->permissions->map->only(['name'])->pluck('name');
-
         return in_array('user.delete', $userPermissions->toArray());
     }
 
